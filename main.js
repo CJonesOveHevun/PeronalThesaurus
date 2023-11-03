@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded",function(){
         if (inp_search.value == ""){
             return;
         }
-        query_finished.syn = false;
-        query_finished.ant = false;
-        query_finished.partof = false;
+        query_finished.forEach(function(item, index){
+            query_finished[index] = false;
+        })
 
         var text = inp_search.value;
         SetWord(text)
@@ -117,7 +117,7 @@ async function GetResultsToList(type, response){
         
     })
     var get_word_p = document.getElementById(`word-p-${type}`);
-    get_word_p.textContent = words
+    get_word_p.textContent = words;
 
 }
 

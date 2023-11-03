@@ -128,8 +128,12 @@
                 display: none;
             }
             #searchbox{
-                margin: 0px 10%;
-                width:100dvw;
+                margin: auto;
+                display:flex;
+                justify-content:space-around;
+            }
+            #search_word{
+                padding: auto 20%;
             }
         }
         @keyframes loadanim {
@@ -163,19 +167,34 @@
             border-radius: 5px;
             box-shadow: 1px 1px 28px 4px rgba(0,0,0,0.1);
             align-items: center;
+            font-size: 12px;
         }
         .word-p{
             padding: 0px 20px;
             transition: 4s all;
+            font-size: 14px;
+            animation: setp 0.4s ease-in linear;
         }
         #cont_word{
             display: grid;
+        }
+        #word-title{
+            font-size: 45px;
+        }
+        @keyframes setp{
+            0%{
+                color: rgba(0,0,0,0);
+            }
+            100%{
+                color:rgba(0,0,0,1);
+            }
         }
     </style>
 </head>
 <body>
    <div id="cont_word">
     <div class="word">
+        <br>
         <h1 id="word-title">[Word]</h1>
         <p class="word-p">/Word searched/</p>
         <hr>
