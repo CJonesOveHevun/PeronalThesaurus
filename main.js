@@ -1,6 +1,7 @@
 
 const inp_search = document.getElementById("search_word");
 const btn_search = document.getElementById("search_submit");
+const pwords = document.getElementsByClassName("word-p")
 
 const box_query = document.getElementById("querybox");
 
@@ -8,6 +9,9 @@ var query_finished = {"syn":true,"ant":true,"partof":true,"jjb":true}
 
 document.addEventListener("DOMContentLoaded",function(){
     box_query.style.display = "none";
+    for (let i = 0; i < pwords.length; i++){
+        pwords[i].classList.toggle("toggle-anim-p");
+    };
 
     btn_search.addEventListener("click", function(){
         if (inp_search.value == ""){
@@ -17,7 +21,6 @@ document.addEventListener("DOMContentLoaded",function(){
         query_finished.ant = false;
         query_finished.partof = false;
         query_finished.jjb = false;
-
         var text = inp_search.value;
         box_query.style.display = "grid";
         DisableSearchBar(true)
@@ -25,7 +28,11 @@ document.addEventListener("DOMContentLoaded",function(){
         getSynonyms(text)
         getAntonyms(text)
         getPartOf(text)
-        getMeansLike
+        getMeansLike(text)
+        for (let i = 0; i < pwords.length; i++){
+            pwords[i].classList.toggle("toggle-anim-p");
+        };
+
 
         if (query_finished.syn && query_finished.ant && query_finished.partof){
             QueryFinished()
@@ -40,7 +47,6 @@ document.addEventListener("DOMContentLoaded",function(){
             query_finished.ant = false;
             query_finished.partof = false;
             query_finished.jjb = false;
-
             var text = inp_search.value;
             box_query.style.display = "grid";
             DisableSearchBar(true)
@@ -50,6 +56,9 @@ document.addEventListener("DOMContentLoaded",function(){
             getPartOf(text)
             getAdjectives(text)
             getMeansLike(text)
+            for (let i = 0; i < pwords.length; i++){
+                pwords[i].classList.toggle("toggle-anim-p");
+            };
 
             if (query_finished.syn && query_finished.ant && query_finished.partof){
                 QueryFinished()
@@ -126,6 +135,7 @@ async function GetResultsToList(type, response){
     })
     var get_word_p = document.getElementById(`word-p-${type}`);
     get_word_p.textContent = words;
+    get_word_p.classList.toggle("toggle-anim-p");
     DisableSearchBar(false);
     box_query.style.display = "none";
 

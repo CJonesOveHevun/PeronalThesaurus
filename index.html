@@ -152,7 +152,7 @@
             font-size: 12px;
         }
         .word-p{
-            padding: 0px 20px;
+            padding: 20px 20px;
             transition: 4s all;
             font-size: 14px;
             animation: setp 0.4s ease-in linear;
@@ -206,6 +206,9 @@
                 margin: 0% 0%;
             }
         }
+        .toggle-anim-p{
+            animation: setp 0.5s ease-in;
+        }
     </style>
 </head>
 <body>
@@ -213,24 +216,24 @@
     <div class="word">
         <br>
         <h1 id="word-title">[Word]</h1>
-        <p class="word-p">[Word searched]</p>
+        <p class="word-p" class="toggle-anim-p">[Word searched]</p>
         <hr>
         <h1>[Synonyms]</h1>
-        <p class="word-p" id="word-p-syn"></p>
+        <p class="word-p" class="toggle-anim-p" id="word-p-syn"></p>
         <h1>[Antonyms]</h1>
-        <p class="word-p" id="word-p-ant"></p>
+        <p class="word-p" class="toggle-anim-p" id="word-p-ant"></p>
         <hr>
     <div class="word">
         <h1>[Part of:]</h1>
-        <p class="word-p" id="word-p-par"></p>
+        <p class="word-p" class="toggle-anim-p" id="word-p-par"></p>
     </div>
     <div class="word">
         <h1>[Adjectives]</h1>
-        <p class="word-p" id="word-p-jjb"></p>
+        <p class="word-p" class="toggle-anim-p" id="word-p-jjb"></p>
     </div>
     <div class="word">
         <h1>[Related to]</h1>
-        <p class="word-p" id="word-p-ml"></p>
+        <p class="word-p" class="toggle-anim-p" id="word-p-ml"></p>
     </div>
    </div>
     
