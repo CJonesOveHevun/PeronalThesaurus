@@ -8,7 +8,7 @@
     <style>
         body{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: beige;
+            background-color: rgb(240, 235, 230);
             color: black;
             margin: 0%;
         }
@@ -66,6 +66,9 @@
             font-size: larger;
             box-shadow: 1px 9px 8px 4px rgb(199, 110, 100);
         }
+        #search_word:disabled{
+            background-color: rgba(255,255,255,0.7);
+        }
         #search_submit{
             margin: 0px 20px;
             background-color: transparent;
@@ -73,7 +76,7 @@
             border: none;
             font-size: 18px;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 24px;
         }
         #search_submit:hover{
             background-color: rgb(199, 110, 100);
@@ -114,27 +117,6 @@
             margin: auto;
             animation:loadanim 0.5s normal infinite;
             
-        }
-        @media (max-width:600px){
-            .word{
-                margin: 10px 0px;
-                background-color: antiquewhite;
-            }
-            #search_submit{
-                display: none;
-                width: 80%;
-            }
-            #Title{
-                display: none;
-            }
-            #searchbox{
-                margin: auto;
-                display:flex;
-                justify-content:space-around;
-            }
-            #search_word{
-                padding: auto 20%;
-            }
         }
         @keyframes loadanim {
             0% {
@@ -189,6 +171,41 @@
                 color:rgba(0,0,0,1);
             }
         }
+        @media (max-width:600px){
+            .word{
+                padding: 10px 10px;
+                margin: 50px 0px;
+                background-color: rgb(255, 255, 255);
+            }
+            #search_submit{
+                display: none;
+                width: 80%;
+            }
+            #Title{
+                display: none;
+            }
+            #searchbox{
+                margin: auto;
+                display:flex;
+                justify-content:space-around;
+                width: 100%;
+            }
+            #search_word{
+                padding: auto 80%;
+                width: 80%;
+                margin-left: 10px;
+            }
+            #search_word:focus{
+                margin-left: 10px;
+            }
+            .word-p{
+                padding: 0px 5px;
+            }
+            #cont_word{
+                display: grid;
+                margin: 0% 0%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -196,7 +213,7 @@
     <div class="word">
         <br>
         <h1 id="word-title">[Word]</h1>
-        <p class="word-p">/Word searched/</p>
+        <p class="word-p">[Word searched]</p>
         <hr>
         <h1>[Synonyms]</h1>
         <p class="word-p" id="word-p-syn"></p>
@@ -226,7 +243,7 @@
     </div>
 
     <div id=nav>
-        <h1 id="Title">Thesaurus
+        <h1 id="Title">PThesaurus
             <p class="sub">made by: Jerome</p>
         </h1>
         <div id="searchbox">

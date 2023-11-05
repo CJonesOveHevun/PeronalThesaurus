@@ -13,11 +13,14 @@ document.addEventListener("DOMContentLoaded",function(){
         if (inp_search.value == ""){
             return;
         }
-        query_finished.forEach(function(item, index){
-            query_finished[index] = false;
-        })
+        query_finished.syn = false;
+        query_finished.ant = false;
+        query_finished.partof = false;
+        query_finished.jjb = false;
 
         var text = inp_search.value;
+        box_query.style.display = "grid";
+        DisableSearchBar(true)
         SetWord(text)
         getSynonyms(text)
         getAntonyms(text)
@@ -39,6 +42,8 @@ document.addEventListener("DOMContentLoaded",function(){
             query_finished.jjb = false;
 
             var text = inp_search.value;
+            box_query.style.display = "grid";
+            DisableSearchBar(true)
             SetWord(text)
             getSynonyms(text)
             getAntonyms(text)
@@ -62,7 +67,10 @@ async function getSynonyms(text){
     await fetch(`https://api.datamuse.com/words?rel_syn=${text}`)
     .then(response => response.json())
     .then(response => GetResultsToList("syn", response))
-    .catch(err => console.error(err));
+    .catch(err => function(){
+        console.error(err);
+        DisableSearchBar(false);
+    });
     query_finished.syn = true;
 }
 
@@ -86,7 +94,7 @@ async function getAdjectives(text){
     await fetch(`https://api.datamuse.com/words?rel_jjb=${text}`)
     .then(response => response.json())
     .then(response => GetResultsToList("jjb", response))
-    .catch(err => console.error(err));
+    .catch(err => fconsole.error(err));
     query_finished.jjb = true;
 }
 
@@ -118,6 +126,12 @@ async function GetResultsToList(type, response){
     })
     var get_word_p = document.getElementById(`word-p-${type}`);
     get_word_p.textContent = words;
+    DisableSearchBar(false);
+    box_query.style.display = "none";
 
 }
 
+function DisableSearchBar(setbool){
+    inp_search.disabled = setbool;
+    btn_search.disabled = setbool;
+}
