@@ -1,2 +1,2 @@
 # PeronalThesaurus
-Just a Personal Thesaurus, feel free to look and use my project
+Just a <i>Personal Thesaurus<i>, feel free to look and use my project
