@@ -1,4 +1,4 @@
-PersonalThesaurus
+<h3>Personal Thesaurus</h3>
 <p>Just a <i>Personal Thesaurus<i>, feel free to look and use my project
 <br>
 Following features to be expected:
