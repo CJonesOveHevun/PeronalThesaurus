@@ -1,8 +1,8 @@
 PersonalThesaurus
 <p>Just a <i>Personal Thesaurus<i>, feel free to look and use my project
-<bl>
+<br>
 Following features to be expected:
-<bl>
+<br>
 <ul>
   <li>Synonyms</li>
   <li>Antonyms</li>
